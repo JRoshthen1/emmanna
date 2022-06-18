@@ -1,3 +1,15 @@
 .navbar-expand-lg .navbar-collapse{
     flex-direction: row-reverse;
 }
+
+.tilt {
+    width: calc(100% + 1.3px);
+    height: 50px;
+    transform: rotateY(180deg);
+}
+
+.atriang {
+    width: calc(100% + 1.3px);
+    height: 25px;
+}
+
