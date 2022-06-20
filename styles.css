@@ -13,3 +13,8 @@
     height: 25px;
 }
 
+.step-button-active{
+    background-color: #1F2937;
+    border-color: #2563EB;
+    color: white;
+}
