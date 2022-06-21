@@ -1,3 +1,4 @@
+// Requires SMPT on server to function
 <?php
 // Take all the POST form values and store them into variables
     $name=$_POST["name"];
