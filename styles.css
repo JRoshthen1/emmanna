@@ -1,16 +1,4 @@
-.navbar-expand-lg .navbar-collapse{
-    flex-direction: row-reverse;
-}
-@font-face {
-    font-family: Roboto;
-    src: url(fonts/Roboto/Roboto-Thin.ttf);
-    font-weight: 100;
-  }
-@font-face {
-    font-family: Roboto;
-    src: url(fonts/Roboto/Roboto-Light.ttf);
-    font-weight: 300;
-  }
+
 @font-face {
     font-family: Roboto;
     src: url(fonts/Roboto/Roboto-Regular.ttf);
@@ -20,16 +8,6 @@
     font-family: Roboto;
     src: url(fonts/Roboto/Roboto-Medium.ttf);
     font-weight: 500;
-  }
-  @font-face {
-    font-family: Roboto;
-    src: url(fonts/Roboto/Roboto-Bold.ttf);
-    font-weight: 700;
-  }
-  @font-face {
-    font-family: Roboto;
-    src: url(fonts/Roboto/Roboto-Black.ttf);
-    font-weight: 900;
   }
 
 .tilt {
@@ -48,8 +26,9 @@
     border-color: #2563EB;
     color: white;
 }
-body{
+.body-font{
     font-family: Roboto;
+    font-weight: 400;
 }
 
 .title-font{

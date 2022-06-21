@@ -1,5 +1,6 @@
-// Requires SMPT on server to function
+
 <?php
+// Requires SMTP on server to function
 // Take all the POST form values and store them into variables
     $name=$_POST["name"];
     $email=$_POST["email"];
