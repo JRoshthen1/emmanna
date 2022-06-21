@@ -1,3 +1,24 @@
+<?php 
+if(isset($_POST['submit'])){
+    $to = "jroshthen1@gmail.com"; // this is your Email address
+    $name = $_POST['name'];
+    $from = $_POST['email']; // this is the sender's Email address
+    $phone = $_POST['phone'];
+    $subject = "Form submission";
+    $subject2 = "Copy of your form submission";
+    $message = $name . " " . $phone . " wrote the following:" . "\n\n" . $_POST['body'];
+    $message2 = "Here is a copy of your message " . $name . "\n\n" . $_POST['body'];
+
+    $headers = "From:" . $from;
+    $headers2 = "From:" . $to;
+    mail($to,$subject,$message,$headers);
+    mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
+    echo "Mail Sent. Thank you " . $name . ", we will contact you shortly.";
+    header('Location: thank_you.html');
+    // You cannot use header and echo together. It's one or the other.
+    }
+?>
+
 <!DOCTYPE html>
 <html class="scroll-smooth">
 
@@ -43,11 +64,11 @@
       </div>
     </div>
   </header>
-
   <br>
+
   <!-- HERO -->
   <section id="hero" class="text-gray-600 body-font">
-    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="container mx-auto flex my-6 px-5 py-24 md:flex-row flex-col items-center">
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
         <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
       </div>
@@ -72,7 +93,15 @@
   </section>
 
   <!-- SERVICES -->
+
   <section id="services" class="text-gray-400 body-font bg-gray-900">
+
+    <div class="width-full overflow-hidden">
+      <svg class="block tilt" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+        preserveAspectRatio="none">
+        <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="fill-white"></path>
+      </svg>
+    </div>
 
     <!-- Services Intro -->
     <div class="container px-5 py-24 mx-auto">
@@ -187,7 +216,7 @@
             </div>
             <h2 class="text-lg text-white font-medium title-font mb-2">Governmet Buildings</h2>
             <p class="leading-relaxed text-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum animi
-              illum rerum officiis a.</p>
+              illum rerum.</p>
           </div>
         </div>
 
@@ -196,99 +225,116 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="text-gray-600 body-font relative">
+  <section id="contact" class="flex flex-col justtify-center items-center">
+
+    <div class="w-full overflow-hidden">
+      <svg class="atriang block" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"
+        preserveAspectRatio="none">
+        <path d="M1200 0L0 0 892.25 114.72 1200 0z" class="fill-slate-900"></path>
+      </svg>
+    </div>
 
 
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-col text-center w-full mb-12">
-        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">For an online reservation or further consultation.</p>
+    <div class="flex flex-row justify-center items-center text-gray-600 body-font relative">
+
+
+      <div class="md:block hidden">
+        <img data-aos="fade-right" data-aos-duration="600"
+          class="object-cover 2xl:ml-52 xl:ml-24 lg:ml-12 ml-2 object-center rounded" alt="hero"
+          src="https://dummyimage.com/720x600">
       </div>
 
-      <div class="lg:w-1/2 md:w-2/3 mx-auto">
-        <div class="flex flex-wrap -m-2">
-          <form class="flex flex-wrap" action="" method="post">
-            <div class="p-2 w-1/2">
-              <div class="relative">
-                <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
-                <input type="text" id="name" name="name"
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-6">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">For an online reservation or further consultation.</p>
+        </div>
+
+        <div class="lg:w-1/2 md:w-2/3 mx-auto">
+          <div class="flex flex-wrap -m-2">
+            <form class="flex flex-wrap" action="" method="post">
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                  <input type="text" id="name" name="name" required
+                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8">
+                </div>
               </div>
-            </div>
 
-            <div class="p-2 w-1/2">
-              <div class="relative">
-                <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-                <input type="email" id="email" name="email"
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <div class="p-2 w-1/2">
+                <div class="relative">
+                  <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                  <input type="email" id="email" name="email" required
+                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 ">
+                </div>
               </div>
-            </div>
 
-			<div class="p-2 w-full">
-              <div class="relative">
-                <label for="email" class="leading-7 text-sm text-gray-600">Phone</label>
-                <input type="number" id="phone" name="phone"
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="phone" class="leading-7 text-sm text-gray-600">Phone</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+45 " required
+                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8">
+                </div>
               </div>
-            </div>
 
-            <div class="p-2 w-full">
-              <div class="relative">
-                <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
-                <textarea id="message" name="body"
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+
+              <div class="p-2 w-full">
+                <div class="relative">
+                  <label for="body" class="leading-7 text-sm text-gray-600">Message</label>
+                  <textarea id="body" name="body" required
+                    class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 "></textarea>
+                </div>
               </div>
-            </div>
 
-            <div class="p-2 w-full">
-              <button type="submit"
-                class="flex mx-auto text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg">Button</button>
-            </div>
-        </form>
-
-          <div class="flex flex-col items-center space-y-3 p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-            <a href="mailto:ozornia@yahoo.com" class="text-blue-500 hover:underline">ozornia@yahoo.com</a>
-
-            <a href="tel:+4591733297" class="text-blue-500 hover:underline">+45 91 73 32 97</a>
-
-            <span class="inline-flex pt-3">
-              <a class="text-gray-500">
-                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
-                  viewBox="0 0 24 24">
-                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                </svg>
-              </a>
-              <a class="ml-4 text-gray-500">
-                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
-                  viewBox="0 0 24 24">
-                  <path
-                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-                  </path>
-                </svg>
-              </a>
-              <a class="ml-4 text-gray-500">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  class="w-5 h-5" viewBox="0 0 24 24">
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                </svg>
-              </a>
-              <a class="ml-4 text-gray-500">
-                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                  stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-                  <path stroke="none"
-                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
-                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
-                </svg>
-              </a>
-            </span>
-
-
-
+              <div class="p-2 w-full">
+                <button type="submit"
+                  class="inline-flex text-white bg-blue-500 border-0 py-1.5 px-6 focus:outline-none hover:bg-blue-500 rounded-full text-md">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+    </div>
+
+    <hr class="w-1/2">
+
+    <div class="flex flex-col items-center space-y-3 p-2 w-full pt-8 mt-8 border-gray-200 text-center">
+      <a href="mailto:ozornia@yahoo.com" class="text-blue-500 hover:underline">ozornia@yahoo.com</a>
+
+      <a href="tel:+4591733297" class="text-blue-500 hover:underline">+45 91 73 32 97</a>
+
+      <span class="inline-flex pt-3">
+        <a class="text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+            viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-4 text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+            viewBox="0 0 24 24">
+            <path
+              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+            </path>
+          </svg>
+        </a>
+        <a class="ml-4 text-gray-500">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-4 text-gray-500">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
+            class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none"
+              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
   </section>
 
   <!-- PRICING -->
@@ -306,11 +352,8 @@
                 class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">
                 Service</th>
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Speed</th>
-              <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Storage</th>
+              <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Surface</th>
               <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">Price</th>
-              <th
-                class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br">
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -319,8 +362,6 @@
               <td class="px-4 py-3">yy</td>
               <td class="px-4 py-3">zz</td>
               <td class="px-4 py-3 text-lg text-gray-900">xx DKK</td>
-              <td class="w-10 text-center">
-                <input name="plan" type="radio">
               </td>
             </tr>
             <tr>
@@ -328,8 +369,6 @@
               <td class="border-t-2 border-gray-200 px-4 py-3">yy</td>
               <td class="border-t-2 border-gray-200 px-4 py-3">zz</td>
               <td class="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">xx DKK</td>
-              <td class="border-t-2 border-gray-200 w-10 text-center">
-                <input name="plan" type="radio">
               </td>
             </tr>
             <tr>
@@ -337,8 +376,6 @@
               <td class="border-t-2 border-gray-200 px-4 py-3">yy</td>
               <td class="border-t-2 border-gray-200 px-4 py-3">zz</td>
               <td class="border-t-2 border-gray-200 px-4 py-3 text-lg text-gray-900">xx DKK</td>
-              <td class="border-t-2 border-gray-200 w-10 text-center">
-                <input name="plan" type="radio">
               </td>
             </tr>
             <tr>
@@ -346,21 +383,13 @@
               <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">yy</td>
               <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">zz</td>
               <td class="border-t-2 border-b-2 border-gray-200 px-4 py-3 text-lg text-gray-900">xx DKK</td>
-              <td class="border-t-2 border-b-2 border-gray-200 w-10 text-center">
-                <input name="plan" type="radio">
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-      <div class="flex pl-4 mt-4 lg:w-2/3 w-full mx-auto">
-        <a href="#" class="text-blue-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            class="w-4 h-4 ml-2" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
+
+
     </div>
   </section>
 
@@ -368,45 +397,82 @@
   <section id="about" class="text-gray-400 bg-slate-900 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
       <div class="flex mx-auto flex-wrap mb-20">
-        <a
-          class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium bg-gray-800 inline-flex items-center leading-none border-blue-500 text-white tracking-wider rounded-t">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg>STEP 1
+        <a id="stepButton1" onclick="show(this, 'step1')"
+          class="step-button-active sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider border-gray-800 hover:text-white cursor-pointer">
+          STEP 1
         </a>
-        <a
-          class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-800 hover:text-white tracking-wider">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </svg>STEP 2
+        <a id="stepButton2" onclick="show(this, 'step2')"
+          class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider border-gray-800 hover:text-white cursor-pointer">
+          STEP 2
         </a>
-        <a
-          class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-800 hover:text-white tracking-wider">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-            <circle cx="12" cy="5" r="3"></circle>
-            <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-          </svg>STEP 3
+        <a id="stepButton3" onclick="show(this, 'step3')"
+          class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider border-gray-800 hover:text-white cursor-pointer">
+          STEP 3
         </a>
-        <a
-          class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-800 hover:text-white tracking-wider">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            class="w-5 h-5 mr-3" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>STEP 4
+        <a id="stepButton4" onclick="show(this, 'step4')"
+          class="sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider border-gray-800 hover:text-white cursor-pointer">
+          STEP 4
         </a>
       </div>
-      <img class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded" alt="hero"
-        src="https://dummyimage.com/720x600">
-      <div class="flex flex-col text-center w-full">
-        <h1 class="text-xl font-medium title-font mb-4 text-white">Master Cleanse Reliac Heirloom</h1>
-        <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
-          asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep
-          jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+
+      <div class="relative h-96">
+
+        <div id="step1" class="absolute">
+          <img class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded"
+            alt="hero" src="https://dummyimage.com/600x400/746862/999999">
+          <div class="flex flex-col text-center w-full">
+            <h1 class="text-xl font-medium title-font mb-4 text-white">Lorem ipsum dolor sit 1.</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+              asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun
+              deep
+              jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+          </div>
+        </div>
+
+        <div id="step2" class="absolute hidden">
+          <img class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded"
+            alt="hero" src="https://dummyimage.com/600x400/627473/999999">
+          <div class="flex flex-col text-center w-full">
+            <h1 class="text-xl font-medium title-font mb-4 text-white">Lorem ipsum dolor sit 2.</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+              asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun
+              deep
+              jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+          </div>
+        </div>
+        <style>
+          .color {
+            color: #627473;
+          }
+        </style>
+
+        <div id="step3" class="absolute hidden">
+          <img class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded"
+            alt="hero" src="https://dummyimage.com/600x400/746267/999999">
+          <div class="flex flex-col text-center w-full">
+            <h1 class="text-xl font-medium title-font mb-4 text-white">Lorem ipsum dolor sit 3.</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+              asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun
+              deep
+              jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+          </div>
+        </div>
+
+        <div id="step4" class="absolute hidden">
+          <img class="xl:w-1/4 lg:w-1/3 md:w-1/2 w-2/3 block mx-auto mb-10 object-cover object-center rounded"
+            alt="hero" src="https://dummyimage.com/600x400/627470/999999">
+          <div class="flex flex-col text-center w-full">
+            <h1 class="text-xl font-medium title-font mb-4 text-white">Lorem ipsum dolor sit 4.</h1>
+            <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn
+              asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun
+              deep
+              jianbing selfies heirloom prism food truck ugh squid celiac humblebrag.</p>
+          </div>
+        </div>
+
       </div>
+
+
     </div>
   </section>
 
@@ -511,31 +577,4 @@
   <!-- Custom js -->
   <script src="main.js"></script>
 </body>
-
-<?php
-if(isset($_POST['submit'])){
-    $to = "jroshthen1@gmail.com";
-
-
-
-    $name = $_POST['name'];
-    $email= $_POST['email'];
-    $phone= $_POST['phone'];
-    $subject= $_POST['subject'];
-    $body= $_POST['body'];
-    $headers = 'From: '.$email . "\r\n";
-
-
-    $body = "name : ".$name. "\r\n" .
-    		"Phone : ".$phone. "\r\n" .
-    		"Message : " . $body;
-    if(mail($to, $subject, $body , $headers)){
-        echo "Mail Sent!";
-    }else{
-         echo "Failed To Send Mail";
-    }
-}
-
-?>
-
 </html>
