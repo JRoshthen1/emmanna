@@ -6,8 +6,3 @@ Made for Emmanna cleaning business
 
 Contact form handles data with php and mail()
 // Requires SMTP on server to function
-
-
-Material Design Icons
-    Author:
-        Austin Andrews
