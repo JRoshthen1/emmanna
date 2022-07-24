@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emmanna</title>
+  <title>Emmanna Rengøring</title>
 
-  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script src="/cssframework.js"></script>
   <link rel="stylesheet" href="styles.css">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -19,8 +20,6 @@
       <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
         <a href="#services" class="mr-5 hover:text-white">Services</a>
         <a href="#contact" class="mr-5 hover:text-white">Contact us</a>
-        <a href="#pricing" class="mr-5 hover:text-white">Pricing</a>
-        <a href="#about" class="hover:text-white">About us</a>
       </nav>
       <a href="./"
         class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-white lg:items-center lg:justify-center mb-4 md:mb-0">
@@ -29,7 +28,7 @@
           viewBox="0 0 24 24">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
         </svg>
-        <span class="ml-3 text-xl xl:block lg:hidden">Emmanna</span>
+        <span class="ml-3 text-xl xl:block lg:hidden">Emmanna Rengøring</span>
       </a>
       <div class="hidden sm:flex lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
         <a href="#contact" class="inline-flex items-center bg-gray-800 border-0 py-2 px-4 focus:outline-none
@@ -146,7 +145,7 @@
         </div>
 
         <!-- Day Care -->
-         <div class=" p-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+        <div class=" p-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
           <div class="border border-gray-700 border-opacity-75 p-6 rounded-lg flex flex-row items-center">
             <div
               class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-indigo-400 mr-3">
@@ -158,7 +157,7 @@
             </div>
             <h2 class="text-lg text-white font-medium title-font">Care Premises</h2>
           </div>
-        </div> 
+        </div>
 
         <!-- Warehouses -->
         <div class=" p-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
@@ -209,8 +208,7 @@
 
       <!-- Contact image, hidden on phone -->
       <div class="lg:block my-24 container hidden">
-        <img data-aos="fade-right" data-aos-duration="600"
-          class="object-cover object-center rounded" alt="cleaning"
+        <img data-aos="fade-right" data-aos-duration="600" class="object-cover object-center rounded" alt="cleaning"
           src="./emm1.png">
       </div>
 
@@ -218,8 +216,9 @@
       <div class="container px-5 py-20 mx-auto">
         <div class="flex flex-col text-center w-full mb-6">
           <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-700">Contact Us</h1>
-          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Fill in this form for an online reservation or further consultation.</p>
-        </div>  
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Fill in this form for an online reservation or further
+            consultation.</p>
+        </div>
 
         <div class="lg:w-2/3 md:w-2/3 mx-auto">
           <div class="flex flex-wrap -m-2">
@@ -277,9 +276,9 @@
 
       <a href="tel:+4591733297" class="text-blue-500 hover:underline">+45 91 73 32 97</a>
 
-    <p class="text-sm text-gray-400">You can also use email or call our phone number!</p>
+      <p class="text-sm text-gray-400">You can also use email or call our phone number!</p>
 
-    <!-- Social Media icons  -->
+      <!-- Social Media icons  -->
       <!-- 
               <span class="inline-flex pt-3">
         <a class="text-gray-500">
@@ -315,7 +314,9 @@
        -->
   </section>
 
-  <!-- ABOUT
+  <!-- ABOUT US 
+######{ This section was supposed to be implemented "later".. }########
+
   <section id="about" class="text-gray-400 bg-slate-900 body-font">
     <div class="container px-5 py-24 mx-auto flex flex-wrap flex-col">
       <div class="flex mx-auto flex-wrap mb-20">
@@ -397,7 +398,37 @@
 
     </div>
   </section>
+
+
+  <script>
+  //Change modal of the About us section
+  //Anchors have onclick() event listener which passess show function,
+  // with current element attribute and id of the desired modal
+
+  // function show(element, id) {
+
+  // //First hide all of the modals
+  // document.getElementById("step1").classList.add('hidden');
+  // document.getElementById("step2").classList.add('hidden');
+  // document.getElementById("step3").classList.add('hidden');
+  // document.getElementById("step4").classList.add('hidden');
+
+  // //deactivate all the buttons
+  // document.getElementById("stepButton1").classList.remove('step-button-active');
+  // document.getElementById("stepButton2").classList.remove('step-button-active');
+  // document.getElementById("stepButton3").classList.remove('step-button-active');
+  // document.getElementById("stepButton4").classList.remove('step-button-active');
+
+  // //activate desired modal
+  // document.getElementById(id).classList.remove('hidden');
+  // //activate clicked button
+  // element.classList.add('step-button-active')
+  // }
+</script>
+
+  
 -->
+
 
   <!-- FOOTER -->
   <footer class="text-gray-600 body-font">
@@ -414,12 +445,13 @@
         <p class="mt-2 text-sm text-gray-500">As clean as it gets!</p>
       </div>
 
-
+      <!-- footer links -->
       <div
-        class="flex flex-col space-y-3 md:flex-row items-center justify-center md:w-full md:pr-20 md:text-left text-center order-first">
+        class="flex flex-col space-y-3 md:flex-row items-center md:justify-start md:w-full md:pr-20 md:text-left text-center order-first">
 
         <div class="lg:w-1/5 md:w-1/2 w-full ">
-          <h2 class="title-font font-medium mt-3 hover:text-gray-700 tracking-wider text-sm"><a href="#hero">BACK TO TOP</a>
+          <h2 class="title-font font-medium mt-3 hover:text-gray-700 tracking-wider text-sm"><a href="#hero">BACK TO
+              TOP</a>
           </h2>
         </div>
 
@@ -433,15 +465,6 @@
           </h2>
         </div>
 
-        <div class="lg:w-1/5 md:w-1/2 w-full ">
-          <h2 class="title-font font-medium hover:text-gray-700 tracking-wider text-sm"><a href="#pricing">PRICING</a>
-          </h2>
-        </div>
-
-        <div class="lg:w-1/5 md:w-1/2 w-full ">
-          <h2 class="title-font font-medium hover:text-gray-700 tracking-wider text-sm"><a href="#about">ABOUT US</a>
-          </h2>
-        </div>
 
       </div>
 
@@ -463,32 +486,7 @@
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init();
-
-// <!-- Custom js -->
-
-//Change modal of the About us section
-//Anchors have onclick() event listener which passess show function,
-// with current element attribute and id of the desired modal
-
-// function show(element, id) {
-
-// //First hide all of the modals
-// document.getElementById("step1").classList.add('hidden');
-// document.getElementById("step2").classList.add('hidden');
-// document.getElementById("step3").classList.add('hidden');
-// document.getElementById("step4").classList.add('hidden');
-
-// //deactivate all the buttons
-// document.getElementById("stepButton1").classList.remove('step-button-active');
-// document.getElementById("stepButton2").classList.remove('step-button-active');
-// document.getElementById("stepButton3").classList.remove('step-button-active');
-// document.getElementById("stepButton4").classList.remove('step-button-active');
-
-// //activate desired modal
-// document.getElementById(id).classList.remove('hidden');
-// //activate clicked button
-// element.classList.add('step-button-active')
-// }
-</script>
+  </script>
 </body>
+
 </html>
